@@ -1,6 +1,8 @@
 class BooksController < ApplicationController
   def index
     @books = Book.all
+    @books = Book.all.order(created_at: :desc)
+    @book = Book.new
   end
 
   def show
@@ -11,17 +13,35 @@ class BooksController < ApplicationController
     @book = Book.new
   end
 
- def create
+  def create
     book = Book.new(book_params)
     book.save
     redirect_to book_path(book.id)
+    flash[:notice] = "Book was successfully updated."
   end
 
   def edit
+    @book = Book.find(params[:id])
+  end
+
+  def update
+    book = Book.find(params[:id])
+    book.update(book_params)
+    redirect_to book_path(book.id)
+    flash[:notice] = "Book was successfully updated."
+  end
+
+  def destroy
+    book = Book.find(params[:id])
+    book.destroy
+    redirect_to books_path
+    flash[:notice] = "Book was successfully destroyed."
   end
 
  private
+
   def book_params
-   params.permit(:title, :body)
+  params.require(:book).permit(:title, :body)
   end
+
 end

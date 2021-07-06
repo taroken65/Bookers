@@ -1,4 +1,9 @@
-<p>Book was successfully updated. </p><br>
+ <% if flash[:notice] %>
+     <p class="notice">
+       <%= flash[:notice] %>
+     </p>
+ <% end %>
+ <br>
 
 <p>Title: <%= @book.title %></p><br>
 
