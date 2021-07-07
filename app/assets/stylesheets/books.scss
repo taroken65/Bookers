@@ -3,12 +3,13 @@
 // You can use Sass (SCSS) here: http://sass-lang.com/
 body {
   font-size: 13px;
-
+  margin: 33px;
+  line-height: 18px;
+  font-family: verdana, arial, helvetica, sans-serif;
 }
 
 table {
-  padding:20px;
-  text-align: left;
+border-spacing: 10px;
 
 }
 
@@ -16,7 +17,13 @@ th {
   padding-bottom: 7px;
   padding-left: 5px;
   padding-right: 5px;
-  color: grey;
+  text-align: ceter;
+}
+
+td {
+  color: #333;
+  text-align: left;
+
 }
 
 .notice {
